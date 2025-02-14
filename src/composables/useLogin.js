@@ -13,11 +13,11 @@ const useLoginPage = () => {
     const user = userDB.find((item) => item.email === email.value)
     if (user?.password !== password.value) {
       toast('Invalid credentials', { type: 'error' })
-      console.log('ss')
       return
     }
 
     void setUser(user)
+    toast('Logged in successfully', { type: 'success' })
   }
 
   return {
