@@ -1,6 +1,7 @@
 import { ref } from 'vue'
 import userDB from '../constants/userDB'
 import { useUserStore } from '@/stores/user'
+import { toast } from 'vue3-toastify'
 
 const useLoginPage = () => {
   const { setUser } = useUserStore()
@@ -11,7 +12,8 @@ const useLoginPage = () => {
   const submit = () => {
     const user = userDB.find((item) => item.email === email.value)
     if (user?.password !== password.value) {
-      // handle error ?
+      toast('Invalid credentials', { type: 'error' })
+      console.log('ss')
       return
     }
 
