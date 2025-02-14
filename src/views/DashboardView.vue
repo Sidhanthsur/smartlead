@@ -4,6 +4,8 @@ import EmailSVG from '@/assets/email.svg';
 import LeadsSVG from '@/assets/leads.svg';
 import CampaignsSVG from '@/assets/campaigns.svg';
 import router from '@/router';
+import SlackSVG from '@/assets/slack.svg';
+import PlaySVG from '@/assets/play.svg';
 
 
 const options = [
@@ -31,10 +33,22 @@ const options = [
     },
   },
 ]
+
+const bottomOptions = [
+  {
+    label: 'Join Slack Community',
+    disabled: true,
+    icon: SlackSVG,
+  }, {
+    label: 'Smartlead Tutorials',
+    icon: PlaySVG,
+    disabled: true,
+  }
+]
 </script>
 <template>
   <div class="page dashboard-view">
-    <SLSideMenu :options="options" />
+    <SLSideMenu :options="options" :bottomOptions="bottomOptions" />
     <RouterView />
   </div>
 </template>
