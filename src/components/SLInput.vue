@@ -20,7 +20,7 @@ const props = defineProps({
   }
 });
 
-const emit = defineEmits(['update:modelValue']);
+const model = defineModel()
 
 const showPassword = ref(false);
 const inputType = computed(() => {
@@ -39,11 +39,10 @@ const togglePassword = () => {
   <div class="input-group">
     <label v-if="label" class="input-label">{{ label }}</label>
     <div class="input-wrapper">
-      <input :type="inputType" :value="modelValue" :placeholder="placeholder" class="input-field"
-        @input="emit('update:modelValue', $event.target.value)" />
-      <div v-if="type === 'password'" class="password-toggle" @click="togglePassword">
+      <input :type="inputType" v-model="model" :value="model" :placeholder="placeholder" class="input-field" />
+      <button v-if="type === 'password'" class="password-toggle" @click="togglePassword">
         <span class="icon">{{ showPassword ? 'Hide' : 'Show' }}</span>
-      </div>
+      </button>
     </div>
   </div>
 </template>

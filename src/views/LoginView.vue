@@ -1,19 +1,10 @@
 <script setup>
-import Banner from '@/components/Banner.vue';
-import SLButton from '@/components/SLButton.vue';
-import SLInput from '@/components/SLInput.vue';
+import Banner from '@/components/Banner.vue'
+import SLButton from '@/components/SLButton.vue'
+import SLInput from '@/components/SLInput.vue'
+import useLoginPage from '@/composables/useLogin'
 
-import { ref } from 'vue';
-
-const email = ref('');
-const password = ref('');
-
-function handleLogin() {
-  console.log('email:', email.value);
-  console.log('Password:', password.value);
-}
-
-
+const { email, password, submit } = useLoginPage()
 </script>
 
 <template>
@@ -22,13 +13,11 @@ function handleLogin() {
       <Banner />
     </header>
     <main class="login-view">
-      <form class="login-view__card" @submit.prevent="handleLogin">
-
+      <form class="login-view__card" @submit.prevent="submit">
         <div class="login-view__card-title">Welcome to Smartlead.ai</div>
         <div class="login-view__card-sub-title">Log in to your account</div>
         <SLInput label="Email" v-model="email" placeholder="Enter your email" required />
         <SLInput v-model="password" label="Password" type="password" placeholder="Enter your password" />
-
         <SLButton label="Sign in" type="submit" :disabled="!(email && password)" />
       </form>
     </main>
@@ -51,7 +40,7 @@ function handleLogin() {
 }
 
 .login-view__card-title {
-  font-family: "DM Sans";
+  font-family: 'DM Sans';
   font-weight: 700;
   font-size: 24px;
   line-height: 31.25px;
