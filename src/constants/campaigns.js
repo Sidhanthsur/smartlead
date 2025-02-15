@@ -7,7 +7,7 @@ export const campaigns = [
     statusTime: '13 Apr 2021',
     id: 1,
     metrics: {
-      sent: 0,
+      sent: { count: 0, percentage: 0 },
       clicked: {
         percentage: 17,
         count: 145
@@ -35,7 +35,7 @@ export const campaigns = [
     status: 'Paused',
     statusTime: '13 Apr 2021',
     metrics: {
-      sent: 0,
+      sent: { count: 0, percentage: 0 },
       clicked: {
         percentage: 17,
         count: 145
@@ -62,7 +62,7 @@ export const campaigns = [
     status: 'Stopped',
     statusTime: '13 Apr 2021',
     metrics: {
-      sent: 0,
+      sent: { count: 0, percentage: 0 },
       clicked: {
         percentage: 17,
         count: 145
@@ -89,7 +89,7 @@ export const campaigns = [
     status: 'Sent',
     statusTime: '13 Apr 2021',
     metrics: {
-      sent: 0,
+      sent: { count: 0, percentage: 0 },
       clicked: {
         percentage: 17,
         count: 145
@@ -116,7 +116,10 @@ export const campaigns = [
     status: 'Drafted',
     statusTime: '13 Apr 2021',
     metrics: {
-      sent: 0,
+      sent: {
+        percentage: 0,
+        count: 0
+      },
       clicked: {
         percentage: 17,
         count: 145
@@ -143,7 +146,7 @@ export const campaigns = [
     status: 'Drafted',
     statusTime: '13 Apr 2021',
     metrics: {
-      sent: 0,
+      sent: { count: 0, percentage: 0 },
       clicked: {
         percentage: 17,
         count: 145
@@ -170,7 +173,7 @@ export const campaigns = [
     status: 'Drafted',
     statusTime: '13 Apr 2021',
     metrics: {
-      sent: 0,
+      sent: { count: 0, percentage: 0 },
       clicked: {
         percentage: 17,
         count: 145
@@ -197,7 +200,7 @@ export const campaigns = [
     status: 'Drafted',
     statusTime: '13 Apr 2021',
     metrics: {
-      sent: 0,
+      sent: { count: 0, percentage: 0 },
       clicked: {
         percentage: 17,
         count: 145
@@ -224,7 +227,7 @@ export const campaigns = [
     status: 'Drafted',
     statusTime: '13 Apr 2021',
     metrics: {
-      sent: 0,
+      sent: { count: 0, percentage: 0 },
       clicked: {
         percentage: 17,
         count: 145

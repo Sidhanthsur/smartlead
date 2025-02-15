@@ -1,6 +1,8 @@
 <script setup>
 import SLCampaignProgress from './SLCampaignProgress.vue'
 import SLCampaignStatus from './SLCampaignStatus.vue'
+import SLCampaignMetric from './SLCampaignMetric.vue'
+import errorSVG from '@/assets/error.svg'
 defineProps(['campaign'])
 const model = defineModel()
 </script>
@@ -21,6 +23,16 @@ const model = defineModel()
         :status="campaign.status"
         :count="campaign.sequences"
         :time-stamp="campaign.statusTime"
+      />
+    </div>
+
+    <div class="flex">
+      <SLCampaignMetric
+        v-for="metric in campaign.metrics"
+        :value="metric.count"
+        label="sent"
+        :icon="errorSVG"
+        :percentage="metric.percentage"
       />
     </div>
   </div>
@@ -46,6 +58,7 @@ const model = defineModel()
 
 .sl-campaign-item__title-status-box {
   margin-left: 1.25rem;
+  width: 20rem;
 }
 .sl-campaign-item__status {
   margin-top: 0.5rem;
@@ -53,5 +66,9 @@ const model = defineModel()
 
 .sl-campaign-item__progress {
   margin-left: 1.375rem;
+}
+
+.sl-campaign-item__report {
+  margin-left:;
 }
 </style>

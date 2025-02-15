@@ -37,3 +37,15 @@ a,
 .no-cursor-allowed {
   cursor: not-allowed;
 }
+
+.flex {
+  display: flex;
+}
+
+.items-center {
+  align-items: center;
+}
+
+.margin-left-2 {
+  margin-left: 0.125rem;
+}
