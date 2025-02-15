@@ -41,7 +41,7 @@ const icon = computed(() => {
 <template>
   <div class="campaign-metric">
     <div class="campaign-metric__content">
-      <div class="flex">
+      <div class="flex items-center">
         <div :style="{ color }" class="campaign-metric__value">{{ value }}</div>
         <div v-if="percentage" class="campaign-metric__percentage">{{ percentage }}%</div>
       </div>

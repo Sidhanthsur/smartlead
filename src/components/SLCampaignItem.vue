@@ -2,6 +2,9 @@
 import SLCampaignProgress from './SLCampaignProgress.vue'
 import SLCampaignStatus from './SLCampaignStatus.vue'
 import SLCampaignMetric from './SLCampaignMetric.vue'
+import button1SVG from '@/assets/button1.svg'
+import button2SVG from '@/assets/button2.svg'
+import button3SVG from '@/assets/button3.svg'
 
 defineProps(['campaign'])
 const model = defineModel()
@@ -27,7 +30,7 @@ const model = defineModel()
     </div>
 
     <div class="flex">
-      <template v-for="(metric, key) in campaign.metrics">
+      <template v-for="(metric, key) in campaign.metrics" :key="key">
         <SLCampaignMetric
           :value="metric.count"
           label="sent"
@@ -38,6 +41,19 @@ const model = defineModel()
         />
       </template>
     </div>
+    <div class="flex">
+      <button class="sl-campaign-item__button">
+        <img :src="button1SVG" />
+      </button>
+      <button class="sl-campaign-item__button">
+        <img :src="button2SVG" />
+      </button>
+      <button class="sl-campaign-item__button">
+        <img :src="button3SVG" />
+      </button>
+    </div>
+
+    <div></div>
   </div>
 </template>
 <style scoped>
@@ -71,6 +87,15 @@ const model = defineModel()
   margin-left: 1.375rem;
 }
 
-.sl-campaign-item__report {
+.sl-campaign-item__button {
+  border: 1px solid #e5e7f9;
+  background: #fafaff;
+  width: 2.25rem;
+  height: 2.25rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-right: 0.75rem;
+  cursor: pointer;
 }
 </style>
