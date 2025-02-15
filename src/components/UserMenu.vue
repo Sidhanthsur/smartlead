@@ -29,10 +29,7 @@ const menuItems = [
           <div class="user-email">{{ user.email }}</div>
         </div>
       </div>
-      <div class="workspace">
-        <div class="workspace-label">Workspace</div>
-        <div class="workspace-name">Smartlead</div>
-      </div>
+      <div class="workspace">Your credit usage detail</div>
     </div>
 
     <div class="menu-items">
@@ -89,8 +86,8 @@ const menuItems = [
 
 .user-menu__popup {
   position: absolute;
-  top: 100%;
-  right: 0;
+  top: 70%;
+  right: 0.875rem;
   width: 280px;
   background: white;
   border-radius: 8px;
@@ -132,7 +129,7 @@ const menuItems = [
 .workspace {
   display: flex;
   flex-direction: column;
-  gap: 4px;
+  background: #f7f8fe;
 }
 
 .workspace-label {
