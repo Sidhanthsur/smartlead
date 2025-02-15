@@ -6,6 +6,7 @@ import CampaignsSVG from '@/assets/campaigns.svg'
 import router from '@/router'
 import SlackSVG from '@/assets/slack.svg'
 import PlaySVG from '@/assets/play.svg'
+import UserHeader from '@/components/UserHeader.vue'
 
 const options = [
   {
@@ -47,13 +48,27 @@ const bottomOptions = [
 ]
 </script>
 <template>
-  <div class="page dashboard-view">
-    <SLSideMenu :options="options" :bottomOptions="bottomOptions" />
-    <RouterView />
+  <div class="page">
+    <UserHeader class="dashboard-view__header" />
+    <div class="flex dashboard-view__content">
+      <SLSideMenu :options="options" :bottomOptions="bottomOptions" />
+      <RouterView />
+    </div>
   </div>
 </template>
 <style>
 .dashboard-view {
   display: flex;
+}
+
+.dashboard-view__content {
+  height: 100%;
+  flex: 1;
+}
+
+.dashboard-view__header {
+  position: sticky;
+  top: 0;
+  z-index: 100;
 }
 </style>

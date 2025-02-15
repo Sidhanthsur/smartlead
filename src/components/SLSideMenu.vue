@@ -52,7 +52,6 @@ const isActive = (option) => {
 </template>
 <style>
 .sl-side-menu {
-  height: 100vh;
   width: 14.8rem;
   background-color: white;
   border-right: 1px solid #f0f1f6;
