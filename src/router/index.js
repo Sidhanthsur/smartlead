@@ -1,16 +1,17 @@
 import { createRouter, createWebHistory } from 'vue-router'
-import HomeView from '../views/LoginView.vue'
+import LoginView from '../views/LoginView.vue'
 import DashboardView from '@/views/DashboardView.vue'
 import LeadsView from '@/views/LeadsView.vue'
 import EmailCampaignsView from '@/views/EmailCampaignsView.vue'
+import { authGuard, loginGuard } from './guards'
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
   routes: [
     {
       path: '/',
-      name: 'home',
-      component: HomeView
+      name: 'login',
+      component: LoginView
     },
     {
       path: '/about',
@@ -23,6 +24,9 @@ const router = createRouter({
     {
       path: '/dashboard',
       component: DashboardView,
+      meta: {
+        requiresAuth: true
+      },
       children: [
         {
           path: '',
@@ -37,6 +41,19 @@ const router = createRouter({
       ]
     }
   ]
+})
+
+router.beforeEach((to, from, next) => {
+  if (to.name === 'login') {
+    loginGuard(to, from, next)
+    return
+  }
+  if (to.matched.some((record) => record.meta.requiresAuth)) {
+    authGuard(to, from, next)
+
+    return
+  }
+  next()
 })
 
 export default router
