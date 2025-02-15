@@ -10,10 +10,13 @@ import { storeToRefs } from 'pinia'
 
 const store = useUserStore()
 const { isOfferVisible } = storeToRefs(store)
+defineOptions({
+  inheritAttrs: false
+})
 </script>
 <template>
   <OfferBanner v-if="isOfferVisible" />
-  <div class="user-header">
+  <div v-bind="$attrs" class="user-header">
     <img :src="smartSvg" />
     <div class="flex items-center">
       <img class="user-header__image" :src="upgradeSVG" />
