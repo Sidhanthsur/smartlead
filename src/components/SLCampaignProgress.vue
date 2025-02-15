@@ -5,6 +5,21 @@ import draftSVG from '@/assets/status_draft.svg'
 import pauseSVG from '@/assets/status_pause.svg'
 import { status as statusEnum } from '@/constants/status'
 
+// Constants
+const STROKE_WIDTH = 0.25
+
+const STATUS_ICONS = {
+  [statusEnum.STOPPED]: blockSVG,
+  [statusEnum.DRAFTED]: draftSVG,
+  [statusEnum.PAUSED]: pauseSVG
+}
+
+const STATUS_COLORS = {
+  [statusEnum.STOPPED]: '#CB4B4B',
+  [statusEnum.PAUSED]: '#DD9553',
+  default: '#5eca30'
+}
+
 const props = defineProps({
   progress: {
     type: Number,
@@ -20,50 +35,29 @@ const props = defineProps({
   }
 })
 
+// SVG calculations
 const radius = computed(() => props.size * 0.4)
 const circumference = computed(() => 2 * Math.PI * radius.value)
+const centerPoint = computed(() => props.size / 2)
 const dashOffset = computed(
   () => circumference.value - (props.progress / 100) * circumference.value
 )
 
-const centerPoint = computed(() => props.size / 2)
-
-const icon = computed(() => {
-  switch (props.status) {
-    case statusEnum.STOPPED:
-      return blockSVG
-    case statusEnum.DRAFTED:
-      return draftSVG
-    case statusEnum.PAUSED:
-      return pauseSVG
-    default:
-      return ''
-  }
-})
-
-const strokeColor = computed(() => {
-  switch (props.status) {
-    case statusEnum.STOPPED:
-      return '#CB4B4B'
-    case statusEnum.PAUSED:
-      return '#DD9553'
-    default:
-      return '#5eca30'
-  }
-})
+// Status-based computed properties
+const icon = computed(() => STATUS_ICONS[props.status] || '')
+const strokeColor = computed(() => STATUS_COLORS[props.status] || STATUS_COLORS.default)
 </script>
 
 <template>
   <div class="sl-campaign-progress" :style="{ width: `${size}px`, height: `${size}px` }">
     <svg :width="size" :height="size">
-      <!-- Background circle -->
       <circle
         :cx="centerPoint"
         :cy="centerPoint"
         :r="radius"
         class="sl-campaign-progress__progress-bg"
+        :style="{ strokeWidth: `${STROKE_WIDTH}rem` }"
       />
-      <!-- Progress circle -->
       <circle
         :cx="centerPoint"
         :cy="centerPoint"
@@ -72,14 +66,15 @@ const strokeColor = computed(() => {
         :style="{
           strokeDasharray: circumference,
           strokeDashoffset: dashOffset,
-          stroke: strokeColor
+          stroke: strokeColor,
+          strokeWidth: `${STROKE_WIDTH}rem`
         }"
       />
     </svg>
 
     <div class="sl-campaign-progress__progress-text">
-      <img v-if="icon" :src="icon" alt="status" />
-      <span v-else class="sl-campaign-progress__progress-value">{{ progress }}%</span>
+      <img v-if="icon" :src="icon" :alt="`${status} status`" />
+      <span v-else class="sl-campaign-progress__progress-value"> {{ progress }}% </span>
     </div>
   </div>
 </template>
@@ -95,12 +90,10 @@ const strokeColor = computed(() => {
 .sl-campaign-progress__progress-bg {
   fill: none;
   stroke: #edeef8;
-  stroke-width: 0.25rem;
 }
 
 .sl-campaign-progress__progress-circle {
   fill: none;
-  stroke-width: 0.25rem;
   transform: rotate(-90deg);
   transform-origin: 50% 50%;
   transition: stroke-dashoffset 0.3s ease;
