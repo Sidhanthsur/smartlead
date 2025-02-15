@@ -57,12 +57,14 @@ watch(searchQuery, () => {
           Report
         </div>
       </div>
-      <SLCampaignItem
-        v-model="selectedCampaigns"
-        v-for="campaign in filteredCampaigns"
-        :key="campaign.id"
-        :campaign="campaign"
-      />
+      <div class="email-campaigns__table-body">
+        <SLCampaignItem
+          v-model="selectedCampaigns"
+          v-for="campaign in filteredCampaigns"
+          :key="campaign.id"
+          :campaign="campaign"
+        />
+      </div>
     </div>
   </div>
 </template>
@@ -119,5 +121,9 @@ watch(searchQuery, () => {
 .email-campaigns__header-button {
   height: 2.25rem;
   margin-left: 1.875rem;
+}
+.email-campaigns__table-body {
+  max-height: 38rem;
+  overflow: scroll;
 }
 </style>
