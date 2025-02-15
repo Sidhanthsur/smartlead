@@ -29,7 +29,7 @@ const model = defineModel()
       />
     </div>
 
-    <div class="flex">
+    <div class="flex sl-campaign-item__metric">
       <template v-for="(metric, key) in campaign.metrics" :key="key">
         <SLCampaignMetric
           :value="metric.count"
@@ -97,5 +97,10 @@ const model = defineModel()
   justify-content: center;
   margin-right: 0.75rem;
   cursor: pointer;
+}
+
+.sl-campaign-item__metric {
+  width: 50%;
+  justify-content: space-between;
 }
 </style>

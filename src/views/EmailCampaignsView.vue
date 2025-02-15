@@ -124,7 +124,7 @@ watch(searchQuery, () => {
   margin-left: 1.875rem;
 }
 .email-campaigns__table-body {
-  max-height: 32rem;
+  max-height: 34rem;
   overflow: scroll;
 }
 </style>
