@@ -46,7 +46,12 @@ const togglePassword = () => {
         :placeholder="placeholder"
         class="input-field"
       />
-      <button v-if="type === 'password'" class="password-toggle" @click.prevent="togglePassword">
+      <button
+        :aria-label="showPassword ? 'Hide password' : 'Show password'"
+        v-if="type === 'password'"
+        class="password-toggle"
+        @click.prevent="togglePassword"
+      >
         <span class="icon">{{ showPassword ? 'Hide' : 'Show' }}</span>
       </button>
     </div>
