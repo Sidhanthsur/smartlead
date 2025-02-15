@@ -4,11 +4,18 @@ import { defineStore } from 'pinia'
 export const useUserStore = defineStore('user', () => {
   const user = ref({
     email: '',
-    username: '',
+    username: ''
   })
+
+  const isOfferVisible = ref(false)
 
   const setUser = (newUser) => {
     user.value = newUser
   }
-  return { user, setUser }
+
+  const setOfferVisible = (visible) => {
+    isOfferVisible.value = visible
+  }
+
+  return { user, setUser, isOfferVisible, setOfferVisible }
 })
