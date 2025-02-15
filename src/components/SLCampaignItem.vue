@@ -2,11 +2,18 @@
 import SLCampaignProgress from './SLCampaignProgress.vue'
 import SLCampaignStatus from './SLCampaignStatus.vue'
 defineProps(['campaign'])
+const model = defineModel()
 </script>
 <template>
   <div class="sl-campaign-item">
-    <input type="checkbox" :id="campaign.id" />
-    <SLCampaignProgress :progress="campaign.progress" :status="campaign.status" />
+    <input type="checkbox" :id="campaign.id" :value="campaign.id" v-model="model" />
+
+    <SLCampaignProgress
+      class="sl-campaign-item__progress"
+      :progress="campaign.progress"
+      :status="campaign.status"
+    />
+
     <div class="sl-campaign-item__title-status-box">
       <div class="sl-campaign-item__title">{{ campaign.title }}</div>
       <SLCampaignStatus
@@ -25,6 +32,7 @@ defineProps(['campaign'])
   background-color: white;
   margin: 0.125rem 0;
   width: 100%;
+  padding: 0.75rem;
 }
 
 .sl-campaign-item__title {
@@ -41,5 +49,9 @@ defineProps(['campaign'])
 }
 .sl-campaign-item__status {
   margin-top: 0.5rem;
+}
+
+.sl-campaign-item__progress {
+  margin-left: 1.375rem;
 }
 </style>

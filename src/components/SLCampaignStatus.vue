@@ -47,5 +47,6 @@ const color = computed(() => {
   line-height: 18.23px;
   letter-spacing: 0%;
   color: grey;
+  margin-left: 0.125rem;
 }
 </style>

@@ -1,14 +1,7 @@
 <script setup>
-import { ref } from 'vue'
 import searchSVG from '@/assets/Union.svg'
 
-const searchQuery = ref('')
-const emit = defineEmits(['search'])
-
-const handleInput = (event) => {
-  searchQuery.value = event.target.value
-  emit('search', searchQuery.value)
-}
+const searchQuery = defineModel()
 </script>
 
 <template>
@@ -16,13 +9,7 @@ const handleInput = (event) => {
     <div class="search-icon">
       <img :src="searchSVG" alt="search" />
     </div>
-    <input
-      type="text"
-      class="search-input"
-      placeholder="Search campaigns"
-      :value="searchQuery"
-      @input="handleInput"
-    />
+    <input type="text" class="search-input" placeholder="Search campaigns" v-model="searchQuery" />
   </div>
 </template>
 

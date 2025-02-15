@@ -1,15 +1,41 @@
 <script setup>
-import { ref } from 'vue'
+import { computed, ref, watch, watchEffect } from 'vue'
 import { campaigns } from '@/constants/campaigns'
 import SLCampaignItem from '@/components/SLCampaignItem.vue'
 import SLSearchBar from '@/components/SLSearchBar.vue'
-const filteredCampaigns = ref(campaigns)
 
-const handleSearch = (query) => {
-  filteredCampaigns.value = campaigns.filter((campaign) =>
-    campaign.title.toLowerCase().includes(query.toLowerCase())
+const selectedCampaigns = ref([])
+const selectAllCheckbox = ref(false)
+const searchQuery = ref('')
+
+const filteredCampaigns = computed(() => {
+  return campaigns.filter((campaign) =>
+    campaign.title.toLowerCase().includes(searchQuery.value.toLowerCase())
   )
-}
+})
+
+watchEffect(() => {
+  if (selectAllCheckbox.value) {
+    selectedCampaigns.value = filteredCampaigns.value.map((campaign) => campaign.id)
+  } else {
+    if (selectedCampaigns.value.length === filteredCampaigns.value.length) {
+      selectedCampaigns.value = []
+    }
+  }
+})
+
+watch(selectedCampaigns, (newVal) => {
+  if (newVal.length === filteredCampaigns.value.length) {
+    selectAllCheckbox.value = true
+  } else {
+    selectAllCheckbox.value = false
+  }
+})
+
+watch(searchQuery, () => {
+  selectAllCheckbox.value = false
+  selectedCampaigns.value = []
+})
 </script>
 <template>
   <div class="email-campaigns">
@@ -18,10 +44,21 @@ const handleSearch = (query) => {
         >All Campaigns ({{ filteredCampaigns.length }})</span
       >
       <div>
-        <SLSearchBar @search="handleSearch" />
+        <SLSearchBar v-model="searchQuery" />
       </div>
     </div>
-    <SLCampaignItem v-for="campaign in filteredCampaigns" :key="campaign.id" :campaign="campaign" />
+    <div class="email-campaigns__table">
+      <div class="email-campaigns__table-header">
+        <input type="checkbox" v-model="selectAllCheckbox" />
+        <div class="email-campaigns__table-header-title">Campaign Details</div>
+      </div>
+      <SLCampaignItem
+        v-model="selectedCampaigns"
+        v-for="campaign in filteredCampaigns"
+        :key="campaign.id"
+        :campaign="campaign"
+      />
+    </div>
   </div>
 </template>
 <style scoped>
@@ -46,5 +83,28 @@ const handleSearch = (query) => {
   line-height: 20.83px;
   letter-spacing: 0%;
   color: #282b42;
+}
+
+.email-campaigns__table-header {
+  background: #e9ebf9;
+  height: 3.125rem;
+  display: flex;
+  align-items: center;
+  font-family: DM Sans;
+  font-weight: 700;
+  font-size: 16px;
+  line-height: 20.83px;
+  letter-spacing: 0%;
+  color: #686b8a;
+  padding: 0.75rem;
+}
+
+.email-campaigns__table-header-title {
+  margin-left: 1.375rem;
+}
+
+.email-campaigns__table {
+  width: 100%;
+  padding: 1.25rem;
 }
 </style>
