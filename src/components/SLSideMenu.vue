@@ -1,8 +1,14 @@
 <script setup>
 import SLSideMenuItem from './SLSideMenuItem.vue'
 import { useRoute } from 'vue-router'
+import { computed } from 'vue'
+import { useUserStore } from '@/stores/user'
+import { storeToRefs } from 'pinia'
 
 const route = useRoute()
+const store = useUserStore()
+const { isOfferVisible } = storeToRefs(store)
+
 defineProps({
   options: {
     type: Array,
@@ -20,9 +26,13 @@ const isActive = (option) => {
   }
   return false
 }
+
+const sideMenuHeight = computed(() => {
+  return isOfferVisible.value ? 'calc(100vh - 3.125rem - 5rem)' : 'calc(100vh - 3.125rem)'
+})
 </script>
 <template>
-  <div class="sl-side-menu">
+  <div class="sl-side-menu" :style="{ height: sideMenuHeight }">
     <SLSideMenuItem
       :key="sideOption.label"
       :disabled="sideOption?.disabled"

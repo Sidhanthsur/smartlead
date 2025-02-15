@@ -4,7 +4,7 @@ import SLButton from '@/components/SLButton.vue'
 </script>
 
 <template>
-  <div class="page leads-view">
+  <div class="leads-view">
     <div class="leads-view__title">Get Free New Contacts and Leads</div>
     <div class="leads-view__sub-title">
       Scrape verfied emails straight from LinkedIn using our Sales Navigator lead extractor.
@@ -20,7 +20,7 @@ import SLButton from '@/components/SLButton.vue'
   justify-content: center;
   align-items: center;
   flex-direction: column;
-  height: 100%;
+  flex: 1;
 }
 
 .leads-view__button {

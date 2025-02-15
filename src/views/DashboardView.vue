@@ -61,11 +61,6 @@ const bottomOptions = [
   display: flex;
 }
 
-.dashboard-view__content {
-  height: 100%;
-  flex: 1;
-}
-
 .dashboard-view__header {
   position: sticky;
   top: 0;

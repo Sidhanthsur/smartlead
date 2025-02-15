@@ -25,8 +25,9 @@ watchEffect(() => {
   }
 })
 
-watch(selectedCampaigns, (newVal) => {
-  if (newVal.length === filteredCampaigns.value.length && newVal.length) {
+watch(selectedCampaigns, (newVal, oldVal) => {
+  console.log({ newVal, oldVal })
+  if (newVal.length === filteredCampaigns.value.length) {
     selectAllCheckbox.value = true
   } else {
     selectAllCheckbox.value = false
@@ -51,7 +52,7 @@ watch(searchQuery, () => {
     </div>
     <div class="email-campaigns__table">
       <div class="email-campaigns__table-header">
-        <input type="checkbox" v-model="selectAllCheckbox" />
+        <input type="checkbox" :disabled="!filteredCampaigns.length" v-model="selectAllCheckbox" />
         <div class="email-campaigns__table-header-title">Campaign Details</div>
         <div class="email-campaigns__table-header-title email-campaigns__table-header--report">
           Report
@@ -123,7 +124,7 @@ watch(searchQuery, () => {
   margin-left: 1.875rem;
 }
 .email-campaigns__table-body {
-  max-height: 38rem;
+  max-height: 32rem;
   overflow: scroll;
 }
 </style>
