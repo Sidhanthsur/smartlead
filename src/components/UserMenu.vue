@@ -2,6 +2,7 @@
 import { useUserStore } from '@/stores/user'
 import ellipseSVG from '@/assets/Ellipse.svg'
 import router from '@/router'
+import UserMenuProgress from '@/components/UserMenuProgress.vue'
 const { user, setUser } = useUserStore()
 
 defineProps(['isOpen'])
@@ -29,7 +30,23 @@ const menuItems = [
           <div class="user-email">{{ user.email }}</div>
         </div>
       </div>
-      <div class="workspace">Your credit usage detail</div>
+    </div>
+
+    <div class="workspace">
+      Your credit usage detail
+
+      <UserMenuProgress
+        :percentage="45"
+        left-label="Active Leads"
+        left-value="84, 000 / 90, 000"
+        right-label="Get credits"
+        color="#DD9553"
+      />
+      <UserMenuProgress
+        :percentage="95"
+        left-label="Email Credits"
+        left-value="84, 000 / 90, 000"
+      />
     </div>
 
     <div class="menu-items">
@@ -88,17 +105,17 @@ const menuItems = [
   position: absolute;
   top: 70%;
   right: 0.875rem;
-  width: 280px;
+  width: 21.375rem;
   background: white;
-  border-radius: 8px;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-  margin-top: 8px;
+  border-radius: 0.5rem;
+  box-shadow: 0px 0px 14px 0px #8d8fa966;
+  margin-top: 0.5rem;
   z-index: 10;
 }
 
 .user-menu__profile {
   padding: 16px;
-  border-bottom: 1px solid #e5e7f9;
+  border-bottom: 1px solid #f1f2f8;
 }
 
 .user-menu__profile-info {
@@ -130,6 +147,7 @@ const menuItems = [
   display: flex;
   flex-direction: column;
   background: #f7f8fe;
+  padding: 1.125rem;
 }
 
 .workspace-label {
@@ -147,6 +165,7 @@ const menuItems = [
 
 .menu-items {
   padding: 8px 0;
+  border: 1px solid #f1f2f8;
 }
 
 .menu-item {
