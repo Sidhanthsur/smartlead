@@ -7,7 +7,10 @@ import upgradeSVG from '@/assets/upgrade.svg'
 import { useUserStore } from '@/stores/user'
 import OfferBanner from './OfferBanner.vue'
 import { storeToRefs } from 'pinia'
+import UserMenu from './UserMenu.vue'
+import { ref } from 'vue'
 
+const isOpen = ref(false)
 const store = useUserStore()
 const { isOfferVisible } = storeToRefs(store)
 defineOptions({
@@ -22,8 +25,9 @@ defineOptions({
       <img class="user-header__image" :src="upgradeSVG" />
       <img class="user-header__image" :src="giftsSVG" />
       <img class="user-header__image" :src="questionSVG" />
-      <img class="user-header__image cursor-pointer" :src="ellipseSVG" />
+      <img class="user-header__image cursor-pointer" :src="ellipseSVG" @click="isOpen = !isOpen" />
     </div>
+    <UserMenu :isOpen="isOpen" />
   </div>
 </template>
 <style scoped>
