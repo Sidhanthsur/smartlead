@@ -1,43 +1,9 @@
 <script setup>
-import { computed, ref, watch, watchEffect } from 'vue'
-import { campaigns } from '@/constants/campaigns'
 import SLCampaignItem from '@/components/SLCampaignItem.vue'
 import SLSearchBar from '@/components/SLSearchBar.vue'
 import SLButton from '@/components/SLButton.vue'
-
-const selectedCampaigns = ref([])
-const selectAllCheckbox = ref(false)
-const searchQuery = ref('')
-
-const filteredCampaigns = computed(() => {
-  return campaigns.filter((campaign) =>
-    campaign.title.toLowerCase().includes(searchQuery.value.toLowerCase())
-  )
-})
-
-watchEffect(() => {
-  if (selectAllCheckbox.value) {
-    selectedCampaigns.value = filteredCampaigns.value.map((campaign) => campaign.id)
-  } else {
-    if (selectedCampaigns.value.length === filteredCampaigns.value.length) {
-      selectedCampaigns.value = []
-    }
-  }
-})
-
-watch(selectedCampaigns, (newVal, oldVal) => {
-  console.log({ newVal, oldVal })
-  if (newVal.length === filteredCampaigns.value.length) {
-    selectAllCheckbox.value = true
-  } else {
-    selectAllCheckbox.value = false
-  }
-})
-
-watch(searchQuery, () => {
-  selectAllCheckbox.value = false
-  selectedCampaigns.value = []
-})
+import useEmailCampaigns from '@/composables/useEmailCampaigns'
+const { searchQuery, selectAllCheckbox, selectedCampaigns, filteredCampaigns } = useEmailCampaigns()
 </script>
 <template>
   <div class="email-campaigns">
