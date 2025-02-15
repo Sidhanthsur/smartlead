@@ -41,9 +41,9 @@ const icon = computed(() => {
 <template>
   <div class="campaign-metric">
     <div class="campaign-metric__content">
-      <div class="flex items-center">
-        <div :style="{ color }" class="campaign-metric__value">{{ value }}</div>
-        <div v-if="percentage" class="campaign-metric__percentage">{{ percentage }}%</div>
+      <div>
+        <span :style="{ color }" class="campaign-metric__value">{{ value }}</span>
+        <span v-if="percentage" class="campaign-metric__percentage">{{ percentage }}%</span>
       </div>
       <div class="flex items-center">
         <div class="campaign-metric__label">{{ label }}</div>
@@ -70,23 +70,18 @@ const icon = computed(() => {
 .campaign-metric__content {
   display: flex;
   flex-direction: column;
-  gap: 4px;
 }
 
 .campaign-metric__value {
   font-family: DM Sans;
   font-weight: 500;
   font-size: 20px;
-  line-height: 26.04px;
-  letter-spacing: 0%;
 }
 
 .campaign-metric__label {
   font-family: DM Sans;
   font-weight: 400;
   font-size: 14px;
-  line-height: 18.23px;
-  letter-spacing: 0%;
   color: #999ba8;
 }
 
@@ -94,10 +89,7 @@ const icon = computed(() => {
   font-family: DM Sans;
   font-weight: 400;
   font-size: 12px;
-  line-height: 15.62px;
-  letter-spacing: 0%;
   color: #999ba8;
-  align-self: flex-end;
-  margin-left: 0.125rem;
+  margin-left: 0.25rem;
 }
 </style>
