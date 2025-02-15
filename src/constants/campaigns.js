@@ -5,6 +5,7 @@ export const campaigns = [
     sequences: 5,
     status: 'DRAFT',
     statusTime: '13 Apr 2021',
+    id: 1,
     metrics: {
       sent: 0,
       clicked: {
@@ -28,6 +29,7 @@ export const campaigns = [
   //generate random data like the above object with different values
   {
     progress: 23,
+    id: 2,
     title: 'zero no 2',
     sequences: 5,
     status: 'PAUSED',
@@ -53,6 +55,7 @@ export const campaigns = [
     }
   },
   {
+    id: 3,
     progress: 18,
     title: 'SW Zero Personalisation 3',
     sequences: 5,
@@ -79,6 +82,7 @@ export const campaigns = [
     }
   },
   {
+    id: 4,
     progress: 35,
     title: 'SW Zero Personalisation 4',
     sequences: 5,
@@ -105,6 +109,7 @@ export const campaigns = [
     }
   },
   {
+    id: 5,
     progress: 35,
     title: 'SW Zero Personalisation 5',
     sequences: 5,
@@ -131,7 +136,8 @@ export const campaigns = [
     }
   },
   {
-    progress: 35,
+    id: 6,
+    progress: 82,
     title: 'SW Zero Personalisation 6',
     sequences: 5,
     status: 'DRAFT',
@@ -157,6 +163,7 @@ export const campaigns = [
     }
   },
   {
+    id: 7,
     progress: 35,
     title: 'SW Zero Personalisation 7',
     sequences: 5,
@@ -183,6 +190,7 @@ export const campaigns = [
     }
   },
   {
+    id: 8,
     progress: 35,
     title: 'SW Zero Personalisation 8',
     sequences: 5,
@@ -209,6 +217,7 @@ export const campaigns = [
     }
   },
   {
+    id: 9,
     progress: 35,
     title: 'SW Zero Personalisation 9',
     sequences: 5,
