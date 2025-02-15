@@ -51,6 +51,9 @@ watch(searchQuery, () => {
       <div class="email-campaigns__table-header">
         <input type="checkbox" v-model="selectAllCheckbox" />
         <div class="email-campaigns__table-header-title">Campaign Details</div>
+        <div class="email-campaigns__table-header-title email-campaigns__table-header--report">
+          Report
+        </div>
       </div>
       <SLCampaignItem
         v-model="selectedCampaigns"
@@ -101,10 +104,14 @@ watch(searchQuery, () => {
 
 .email-campaigns__table-header-title {
   margin-left: 1.375rem;
+  width: 20rem;
 }
 
 .email-campaigns__table {
   width: 100%;
   padding: 1.25rem;
+}
+.email-campaigns__table-header--report {
+  margin-left: 4rem;
 }
 </style>

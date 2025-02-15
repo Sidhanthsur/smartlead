@@ -35,22 +35,26 @@ export const campaigns = [
     status: 'Paused',
     statusTime: '13 Apr 2021',
     metrics: {
-      sent: { count: 0, percentage: 0 },
+      sent: { count: 0, percentage: 0, color: '#6E58F1' },
       clicked: {
         percentage: 17,
-        count: 145
+        count: 145,
+        color: '#EEB728'
       },
       opened: {
         percentage: 13,
-        count: 233
+        count: 233,
+        color: ' #BF51C1'
       },
       replied: {
         percentage: 8,
-        count: 23
+        count: 23,
+        color: '#51C1C1'
       },
       positiveReply: {
         percentage: 2,
-        count: 3
+        count: 3,
+        background: '#2CDB28'
       }
     }
   },

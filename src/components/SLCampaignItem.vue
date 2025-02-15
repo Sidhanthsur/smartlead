@@ -2,7 +2,7 @@
 import SLCampaignProgress from './SLCampaignProgress.vue'
 import SLCampaignStatus from './SLCampaignStatus.vue'
 import SLCampaignMetric from './SLCampaignMetric.vue'
-import errorSVG from '@/assets/error.svg'
+
 defineProps(['campaign'])
 const model = defineModel()
 </script>
@@ -27,13 +27,16 @@ const model = defineModel()
     </div>
 
     <div class="flex">
-      <SLCampaignMetric
-        v-for="metric in campaign.metrics"
-        :value="metric.count"
-        label="sent"
-        :icon="errorSVG"
-        :percentage="metric.percentage"
-      />
+      <template v-for="(metric, key) in campaign.metrics">
+        <SLCampaignMetric
+          :value="metric.count"
+          label="sent"
+          :type="key"
+          :percentage="metric.percentage"
+          :color="metric.color"
+          :status="campaign.status"
+        />
+      </template>
     </div>
   </div>
 </template>
@@ -69,6 +72,5 @@ const model = defineModel()
 }
 
 .sl-campaign-item__report {
-  margin-left:;
 }
 </style>

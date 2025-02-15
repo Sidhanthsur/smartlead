@@ -1,8 +1,8 @@
 <script setup>
-defineProps({
-  icon: {
-    type: String
-  },
+import errorSVG from '@/assets/error.svg'
+import positiveReplySVG from '@/assets/positivereply.svg'
+import { computed } from 'vue'
+const props = defineProps({
   label: {
     type: String,
     required: true
@@ -18,7 +18,23 @@ defineProps({
   percentage: {
     type: Number,
     default: 0
+  },
+  type: {
+    type: String,
+    default: 'default'
+  },
+  status: {
+    type: String
   }
+})
+
+const icon = computed(() => {
+  if (props.status === 'Drafted' && props.type !== 'positiveReply') {
+    return errorSVG
+  } else if (props.type === 'positiveReply') {
+    return positiveReplySVG
+  }
+  return ''
 })
 </script>
 
