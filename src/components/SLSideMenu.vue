@@ -46,6 +46,7 @@ const isActive = (option) => {
         v-for="sideOption in bottomOptions"
         :icon="sideOption.icon"
         :label="sideOption.label"
+        :key="sideOption.label"
       />
     </div>
   </div>
