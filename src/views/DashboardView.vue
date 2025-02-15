@@ -37,13 +37,17 @@ const options = [
 const bottomOptions = [
   {
     label: 'Join Slack Community',
-    disabled: true,
-    icon: SlackSVG
+    icon: SlackSVG,
+    onClick: () => {
+      window.open('https://slack.com', '_blank')
+    }
   },
   {
     label: 'Smartlead Tutorials',
     icon: PlaySVG,
-    disabled: true
+    onClick: () => {
+      window.open('https://youtube.com', '_blank')
+    }
   }
 ]
 </script>
