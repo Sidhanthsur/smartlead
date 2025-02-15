@@ -1,6 +1,7 @@
 <script setup>
 import errorSVG from '@/assets/error.svg'
 import positiveReplySVG from '@/assets/positivereply.svg'
+import { status as statusEnum } from '@/constants/status'
 import { computed } from 'vue'
 const props = defineProps({
   label: {
@@ -29,7 +30,7 @@ const props = defineProps({
 })
 
 const icon = computed(() => {
-  if (props.status === 'Drafted' && props.type !== 'positiveReply') {
+  if (props.status === statusEnum.DRAFTED && props.type !== 'positiveReply') {
     return errorSVG
   } else if (props.type === 'positiveReply') {
     return positiveReplySVG

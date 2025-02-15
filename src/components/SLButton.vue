@@ -31,7 +31,7 @@ defineProps({
       'sl-button--full': type === 'submit'
     }"
   >
-    <span v-if="loading" class="loading-spinner"></span>
+    <span v-if="loading" class="sl-button__loading-spinner"></span>
     <span :class="{ 'opacity-50': loading }">{{ label }}</span>
   </button>
 </template>
@@ -61,7 +61,7 @@ defineProps({
   cursor: not-allowed;
 }
 
-.loading-spinner {
+.sl-button__loading-spinner {
   width: 1rem;
   height: 1rem;
   border: 0.125rem solid #ffffff;

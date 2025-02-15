@@ -1,4 +1,5 @@
 <script setup>
+import { status as statusEnum } from '@/constants/status'
 import { computed } from 'vue'
 
 const props = defineProps({
@@ -20,11 +21,11 @@ const statusText = computed(() => {
 
 const color = computed(() => {
   switch (props.status) {
-    case 'Drafted':
+    case statusEnum.DRAFTED:
       return 'grey'
-    case 'Paused':
+    case statusEnum.PAUSED:
       return '#DD9553'
-    case 'Stopped':
+    case statusEnum.STOPPED:
       return '#CB4B4B'
     default:
       return '#5ECA39'

@@ -3,6 +3,7 @@ import { computed } from 'vue'
 import blockSVG from '@/assets/status_block.svg'
 import draftSVG from '@/assets/status_draft.svg'
 import pauseSVG from '@/assets/status_pause.svg'
+import { status as statusEnum } from '@/constants/status'
 
 const props = defineProps({
   progress: {
@@ -29,11 +30,11 @@ const centerPoint = computed(() => props.size / 2)
 
 const icon = computed(() => {
   switch (props.status) {
-    case 'Stopped':
+    case statusEnum.STOPPED:
       return blockSVG
-    case 'Drafted':
+    case statusEnum.DRAFTED:
       return draftSVG
-    case 'Paused':
+    case statusEnum.PAUSED:
       return pauseSVG
     default:
       return ''
@@ -42,9 +43,9 @@ const icon = computed(() => {
 
 const strokeColor = computed(() => {
   switch (props.status) {
-    case 'Stopped':
+    case statusEnum.STOPPED:
       return '#CB4B4B'
-    case 'Paused':
+    case statusEnum.PAUSED:
       return '#DD9553'
     default:
       return '#5eca30'
