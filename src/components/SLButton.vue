@@ -17,15 +17,20 @@ const props = defineProps({
     default: 'button',
     validator: (value) => ['button', 'submit', 'reset'].includes(value)
   }
-});
+})
 </script>
 
 <template>
-  <button :type="type" :disabled="disabled || loading" class="sl-button" :class="{
-    'sl-button--disabled': disabled,
-    'sl-button--loading': loading,
-    'sl-button--full': type === 'submit'
-  }">
+  <button
+    :type="type"
+    :disabled="disabled || loading"
+    class="sl-button"
+    :class="{
+      'sl-button--disabled': disabled,
+      'sl-button--loading': loading,
+      'sl-button--full': type === 'submit'
+    }"
+  >
     <span v-if="loading" class="loading-spinner"></span>
     <span :class="{ 'opacity-50': loading }">{{ label }}</span>
   </button>
@@ -39,7 +44,7 @@ const props = defineProps({
   padding: 12px 24px;
   border-radius: 0.1875rem;
   border: none;
-  background: #5E5ADB;
+  background: #5e5adb;
   color: white;
   cursor: pointer;
   font-family: DM Sans;
@@ -50,11 +55,9 @@ const props = defineProps({
   text-align: center;
 }
 
-
-
 .sl-button--disabled {
-  background: #EDEEF8;
-  color: #A0A0A0;
+  background: #edeef8;
+  color: #a0a0a0;
   cursor: not-allowed;
 }
 

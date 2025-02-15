@@ -1,5 +1,5 @@
 <script setup>
-import { ref, computed } from 'vue';
+import { ref, computed } from 'vue'
 
 const props = defineProps({
   label: {
@@ -18,29 +18,35 @@ const props = defineProps({
     type: String,
     default: 'text'
   }
-});
+})
 
 const model = defineModel()
 
-const showPassword = ref(false);
+const showPassword = ref(false)
 const inputType = computed(() => {
   if (props.type === 'password') {
-    return showPassword.value ? 'text' : 'password';
+    return showPassword.value ? 'text' : 'password'
   }
-  return props.type;
-});
+  return props.type
+})
 
 const togglePassword = () => {
-  showPassword.value = !showPassword.value;
-};
+  showPassword.value = !showPassword.value
+}
 </script>
 
 <template>
   <div class="input-group">
     <label v-if="label" class="input-label">{{ label }}</label>
     <div class="input-wrapper">
-      <input :type="inputType" v-model="model" :value="model" :placeholder="placeholder" class="input-field" />
-      <button v-if="type === 'password'" class="password-toggle" @click="togglePassword">
+      <input
+        :type="inputType"
+        v-model="model"
+        :value="model"
+        :placeholder="placeholder"
+        class="input-field"
+      />
+      <button v-if="type === 'password'" class="password-toggle" @click.prevent="togglePassword">
         <span class="icon">{{ showPassword ? 'Hide' : 'Show' }}</span>
       </button>
     </div>
@@ -59,8 +65,7 @@ const togglePassword = () => {
   font-weight: 400;
   font-size: 14px;
   letter-spacing: 0%;
-  color: #7A7D9C;
-
+  color: #7a7d9c;
 }
 
 .input-wrapper {
@@ -86,8 +91,7 @@ const togglePassword = () => {
   font-size: 14px;
   line-height: 18.23px;
   letter-spacing: 0%;
-  color: #686B8A;
-
+  color: #686b8a;
 }
 
 .password-toggle:hover .icon {

@@ -16,19 +16,25 @@ const props = defineProps({
     type: Boolean,
     default: false
   }
-});
-
-
+})
 </script>
 
 <template>
-  <div class="menu-item" :class="{
-    'menu-item--active': active,
-    'menu-item__disabled': disabled
-  }">
-    <img v-if="icon" class="menu-item__icon" :class="{
-      'menu-item__icon--in-active': !active
-    }" :src="icon" />
+  <div
+    class="menu-item"
+    :class="{
+      'menu-item--active': active,
+      'menu-item__disabled': disabled
+    }"
+  >
+    <img
+      v-if="icon"
+      class="menu-item__icon"
+      :class="{
+        'menu-item__icon--in-active': !active
+      }"
+      :src="icon"
+    />
     <span class="menu-item__label">{{ label }}</span>
   </div>
 </template>
@@ -38,16 +44,15 @@ const props = defineProps({
   display: flex;
   align-items: center;
   cursor: pointer;
-  color: #686B8A;
+  color: #686b8a;
   padding: 0.625rem 1.25rem;
-  border-left: 0.20rem solid transparent;
+  border-left: 0.2rem solid transparent;
 }
 
-
 .menu-item--active {
-  background-color: #F7F7F9;
-  background: #757AE91A;
-  border-left: 0.20rem solid #757AE9;
+  background-color: #f7f7f9;
+  background: #757ae91a;
+  border-left: 0.2rem solid #757ae9;
 }
 
 .menu-item__icon--in-active {

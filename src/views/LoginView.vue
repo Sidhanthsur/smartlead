@@ -17,7 +17,12 @@ const { email, password, submit } = useLoginPage()
         <div class="login-view__card-title">Welcome to Smartlead.ai</div>
         <div class="login-view__card-sub-title">Log in to your account</div>
         <SLInput label="Email" v-model="email" placeholder="Enter your email" required />
-        <SLInput v-model="password" label="Password" type="password" placeholder="Enter your password" />
+        <SLInput
+          v-model="password"
+          label="Password"
+          type="password"
+          placeholder="Enter your password"
+        />
         <SLButton label="Sign in" type="submit" :disabled="!(email && password)" />
       </form>
     </main>
