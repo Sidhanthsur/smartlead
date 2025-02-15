@@ -46,7 +46,7 @@ watch(searchQuery, () => {
       >
       <div class="flex items-center">
         <SLSearchBar v-model="searchQuery" />
-        <SLButton c class="email-campaigns__header-button margin-left-2" label="+ Add Campaign" />
+        <SLButton c class="email-campaigns__header-button" label="+ Add Campaign" />
       </div>
     </div>
     <div class="email-campaigns__table">
@@ -118,5 +118,6 @@ watch(searchQuery, () => {
 }
 .email-campaigns__header-button {
   height: 2.25rem;
+  margin-left: 1.875rem;
 }
 </style>
