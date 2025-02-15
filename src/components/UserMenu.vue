@@ -24,15 +24,15 @@ const menuItems = [
   <div v-if="isOpen" class="user-menu__popup">
     <div class="user-menu__profile">
       <div class="user-menu__profile-info">
-        <img class="user-avatar user-avatar--large" :src="ellipseSVG" />
-        <div class="user-details">
-          <div class="user-name">{{ user.username }}</div>
-          <div class="user-email">{{ user.email }}</div>
+        <img class="user-menu__avatar" :src="ellipseSVG" />
+        <div class="user-menu__details">
+          <div class="user-menu__name">{{ user.username }}</div>
+          <div class="user-menu__email">{{ user.email }}</div>
         </div>
       </div>
     </div>
 
-    <div class="workspace">
+    <div class="user-menu__workspace">
       Your credit usage detail
 
       <UserMenuProgress
@@ -65,21 +65,10 @@ const menuItems = [
 </template>
 
 <style scoped>
-.user-menu {
-  position: relative;
-}
-
-.user-menu__trigger {
-  display: flex;
-  align-items: center;
-  gap: 8px;
-  cursor: pointer;
-  padding: 8px;
-}
-
-.user-avatar {
-  width: 32px;
-  height: 32px;
+.user-menu__avatar {
+  width: 3rem;
+  height: 3rem;
+  font-size: 1.125rem;
   background: #5e5adb;
   color: white;
   border-radius: 50%;
@@ -90,17 +79,6 @@ const menuItems = [
   font-weight: 500;
 }
 
-.user-avatar--large {
-  width: 48px;
-  height: 48px;
-  font-size: 18px;
-}
-
-.dropdown-arrow {
-  font-size: 12px;
-  color: #686b8a;
-}
-
 .user-menu__popup {
   position: absolute;
   top: 70%;
@@ -108,71 +86,71 @@ const menuItems = [
   width: 21.375rem;
   background: white;
   border-radius: 0.5rem;
-  box-shadow: 0px 0px 14px 0px #8d8fa966;
+  box-shadow: 0 0 0.875rem 0 #8d8fa966;
   margin-top: 0.5rem;
   z-index: 10;
 }
 
 .user-menu__profile {
-  padding: 16px;
-  border-bottom: 1px solid #f1f2f8;
+  padding: 1rem;
+  border-bottom: 0.0625rem solid #f1f2f8;
 }
 
 .user-menu__profile-info {
   display: flex;
-  gap: 12px;
-  margin-bottom: 16px;
+  gap: 0.75rem;
+  margin-bottom: 1rem;
 }
 
-.user-details {
+.user-menu__details {
   display: flex;
   flex-direction: column;
-  gap: 4px;
+  gap: 0.25rem;
 }
 
-.user-name {
+.user-menu__name {
   font-family: 'DM Sans';
   font-weight: 500;
-  font-size: 14px;
+  font-size: 0.875rem;
   color: #282b42;
 }
 
-.user-email {
+.user-menu__email {
   font-family: 'DM Sans';
-  font-size: 14px;
+  font-size: 0.875rem;
   color: #686b8a;
 }
 
-.workspace {
+.user-menu__workspace {
   display: flex;
   flex-direction: column;
   background: #f7f8fe;
   padding: 1.125rem;
 }
 
-.workspace-label {
+.user-menu__workspace-label {
   font-family: 'DM Sans';
-  font-size: 12px;
+  font-size: 0.75rem;
   color: #686b8a;
 }
 
-.workspace-name {
+.user-menu__workspace-name {
   font-family: 'DM Sans';
   font-weight: 500;
-  font-size: 14px;
+  font-size: 0.875rem;
   color: #282b42;
 }
 
 .menu-items {
-  padding: 8px 0;
-  border: 1px solid #f1f2f8;
+  padding: 0.5rem 0;
+  border: 0.0625rem solid #f1f2f8;
 }
 
 .menu-item {
   display: flex;
   align-items: center;
-  gap: 12px;
-  padding: 12px 16px;
+  gap: 0.75rem;
+  padding: 0.75rem 1rem;
   cursor: pointer;
   transition: background-color 0.2s;
 }
@@ -183,7 +161,7 @@ const menuItems = [
 
 .menu-item__label {
   font-family: 'DM Sans';
-  font-size: 14px;
+  font-size: 0.875rem;
   color: #282b42;
 }
 
