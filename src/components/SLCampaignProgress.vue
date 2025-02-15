@@ -29,11 +29,11 @@ const centerPoint = computed(() => props.size / 2)
 
 const icon = computed(() => {
   switch (props.status) {
-    case 'STOPPED':
+    case 'Stopped':
       return blockSVG
-    case 'DRAFT':
+    case 'Drafted':
       return draftSVG
-    case 'PAUSED':
+    case 'Paused':
       return pauseSVG
     default:
       return ''

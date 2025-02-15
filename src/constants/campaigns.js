@@ -3,7 +3,7 @@ export const campaigns = [
     progress: 35,
     title: 'SW Zero Personalisation 1',
     sequences: 5,
-    status: 'DRAFT',
+    status: 'Drafted',
     statusTime: '13 Apr 2021',
     id: 1,
     metrics: {
@@ -32,7 +32,7 @@ export const campaigns = [
     id: 2,
     title: 'zero no 2',
     sequences: 5,
-    status: 'PAUSED',
+    status: 'Paused',
     statusTime: '13 Apr 2021',
     metrics: {
       sent: 0,
@@ -59,7 +59,7 @@ export const campaigns = [
     progress: 18,
     title: 'SW Zero Personalisation 3',
     sequences: 5,
-    status: 'STOPPED',
+    status: 'Stopped',
     statusTime: '13 Apr 2021',
     metrics: {
       sent: 0,
@@ -86,7 +86,7 @@ export const campaigns = [
     progress: 35,
     title: 'SW Zero Personalisation 4',
     sequences: 5,
-    status: 'SENT',
+    status: 'Sent',
     statusTime: '13 Apr 2021',
     metrics: {
       sent: 0,
@@ -113,7 +113,7 @@ export const campaigns = [
     progress: 35,
     title: 'SW Zero Personalisation 5',
     sequences: 5,
-    status: 'DRAFT',
+    status: 'Drafted',
     statusTime: '13 Apr 2021',
     metrics: {
       sent: 0,
@@ -140,7 +140,7 @@ export const campaigns = [
     progress: 82,
     title: 'SW Zero Personalisation 6',
     sequences: 5,
-    status: 'DRAFT',
+    status: 'Drafted',
     statusTime: '13 Apr 2021',
     metrics: {
       sent: 0,
@@ -167,7 +167,7 @@ export const campaigns = [
     progress: 35,
     title: 'SW Zero Personalisation 7',
     sequences: 5,
-    status: 'DRAFT',
+    status: 'Drafted',
     statusTime: '13 Apr 2021',
     metrics: {
       sent: 0,
@@ -194,7 +194,7 @@ export const campaigns = [
     progress: 35,
     title: 'SW Zero Personalisation 8',
     sequences: 5,
-    status: 'DRAFT',
+    status: 'Drafted',
     statusTime: '13 Apr 2021',
     metrics: {
       sent: 0,
@@ -221,7 +221,7 @@ export const campaigns = [
     progress: 35,
     title: 'SW Zero Personalisation 9',
     sequences: 5,
-    status: 'DRAFT',
+    status: 'Drafted',
     statusTime: '13 Apr 2021',
     metrics: {
       sent: 0,
