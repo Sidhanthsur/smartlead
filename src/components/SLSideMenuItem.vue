@@ -45,7 +45,7 @@ const props = defineProps({
   align-items: center;
   cursor: pointer;
   color: #686b8a;
-  padding: 0.625rem 1.25rem;
+  padding: 0.625rem 1rem;
   border-left: 0.2rem solid transparent;
 }
 
