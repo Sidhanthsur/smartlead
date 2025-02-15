@@ -1,5 +1,5 @@
 <script setup>
-const props = defineProps({
+defineProps({
   label: {
     type: String,
     required: true
@@ -62,9 +62,9 @@ const props = defineProps({
 }
 
 .loading-spinner {
-  width: 16px;
-  height: 16px;
-  border: 2px solid #ffffff;
+  width: 1rem;
+  height: 1rem;
+  border: 0.125rem solid #ffffff;
   border-radius: 50%;
   border-top-color: transparent;
   animation: spin 0.8s linear infinite;

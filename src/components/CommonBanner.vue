@@ -2,12 +2,12 @@
 import smartSvg from '@/assets/smart.svg'
 </script>
 <template>
-  <div class="banner">
+  <div class="common-banner">
     <img :src="smartSvg" />
   </div>
 </template>
-<style>
-.banner {
+<style scoped>
+.common-banner {
   width: 100%;
   background: #00056a;
   height: 5rem;

@@ -1,10 +1,10 @@
 <script setup>
-import Banner from '@/components/Banner.vue'
+import Banner from '@/components/CommonBanner.vue'
 import SLButton from '@/components/SLButton.vue'
 import SLInput from '@/components/SLInput.vue'
 import useLoginPage from '@/composables/useLogin'
 
-const { email, password, submit } = useLoginPage()
+const { email, password, submit, isLoading } = useLoginPage()
 </script>
 
 <template>
@@ -23,7 +23,12 @@ const { email, password, submit } = useLoginPage()
           type="password"
           placeholder="Enter your password"
         />
-        <SLButton label="Sign in" type="submit" :disabled="!(email && password)" />
+        <SLButton
+          :loading="isLoading"
+          label="Sign in"
+          type="submit"
+          :disabled="!(email && password)"
+        />
       </form>
     </main>
   </div>

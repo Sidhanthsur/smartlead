@@ -21,7 +21,6 @@ const { setOfferVisible } = useUserStore()
       <img
         @click="
           () => {
-            console.log('why ?')
             setOfferVisible(false)
           }
         "
