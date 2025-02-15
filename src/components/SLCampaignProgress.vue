@@ -54,16 +54,21 @@ const strokeColor = computed(() => {
 </script>
 
 <template>
-  <div class="campaign-progress" :style="{ width: `${size}px`, height: `${size}px` }">
+  <div class="sl-campaign-progress" :style="{ width: `${size}px`, height: `${size}px` }">
     <svg :width="size" :height="size">
       <!-- Background circle -->
-      <circle :cx="centerPoint" :cy="centerPoint" :r="radius" class="progress-bg" />
+      <circle
+        :cx="centerPoint"
+        :cy="centerPoint"
+        :r="radius"
+        class="sl-campaign-progress__progress-bg"
+      />
       <!-- Progress circle -->
       <circle
         :cx="centerPoint"
         :cy="centerPoint"
         :r="radius"
-        class="progress-circle"
+        class="sl-campaign-progress__progress-circle"
         :style="{
           strokeDasharray: circumference,
           strokeDashoffset: dashOffset,
@@ -72,28 +77,28 @@ const strokeColor = computed(() => {
       />
     </svg>
 
-    <div class="progress-text">
+    <div class="sl-campaign-progress__progress-text">
       <img v-if="icon" :src="icon" alt="status" />
-      <span v-else class="progress-value">{{ progress }}%</span>
+      <span v-else class="sl-campaign-progress__progress-value">{{ progress }}%</span>
     </div>
   </div>
 </template>
 
 <style scoped>
-.campaign-progress {
+.sl-campaign-progress {
   position: relative;
   display: inline-flex;
   align-items: center;
   justify-content: center;
 }
 
-.progress-bg {
+.sl-campaign-progress__progress-bg {
   fill: none;
   stroke: #edeef8;
   stroke-width: 0.25rem;
 }
 
-.progress-circle {
+.sl-campaign-progress__progress-circle {
   fill: none;
   stroke-width: 0.25rem;
   transform: rotate(-90deg);
@@ -101,7 +106,7 @@ const strokeColor = computed(() => {
   transition: stroke-dashoffset 0.3s ease;
 }
 
-.progress-text {
+.sl-campaign-progress__progress-text {
   position: absolute;
   display: flex;
   align-items: center;
@@ -110,7 +115,7 @@ const strokeColor = computed(() => {
   height: 100%;
 }
 
-.progress-value {
+.sl-campaign-progress__progress-value {
   font-family: DM Sans;
   font-weight: 400;
   font-size: 12px;
