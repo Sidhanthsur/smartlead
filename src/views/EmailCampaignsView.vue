@@ -3,6 +3,7 @@ import { computed, ref, watch, watchEffect } from 'vue'
 import { campaigns } from '@/constants/campaigns'
 import SLCampaignItem from '@/components/SLCampaignItem.vue'
 import SLSearchBar from '@/components/SLSearchBar.vue'
+import SLButton from '@/components/SLButton.vue'
 
 const selectedCampaigns = ref([])
 const selectAllCheckbox = ref(false)
@@ -25,7 +26,7 @@ watchEffect(() => {
 })
 
 watch(selectedCampaigns, (newVal) => {
-  if (newVal.length === filteredCampaigns.value.length) {
+  if (newVal.length === filteredCampaigns.value.length && newVal.length) {
     selectAllCheckbox.value = true
   } else {
     selectAllCheckbox.value = false
@@ -43,8 +44,9 @@ watch(searchQuery, () => {
       <span class="email-campaigns__header-title"
         >All Campaigns ({{ filteredCampaigns.length }})</span
       >
-      <div>
+      <div class="flex items-center">
         <SLSearchBar v-model="searchQuery" />
+        <SLButton c class="email-campaigns__header-button margin-left-2" label="+ Add Campaign" />
       </div>
     </div>
     <div class="email-campaigns__table">
@@ -113,5 +115,8 @@ watch(searchQuery, () => {
 }
 .email-campaigns__table-header--report {
   margin-left: 4rem;
+}
+.email-campaigns__header-button {
+  height: 2.25rem;
 }
 </style>

@@ -19,8 +19,10 @@ const searchQuery = defineModel()
   align-items: center;
   background: #fafaff;
   border-radius: 6px;
-  padding: 8px 12px;
+  height: 2.25rem;
   width: 240px;
+  padding: 0 0.75rem;
+  border: 1px solid #e5e7f9;
 }
 
 .search-icon {
