@@ -39,6 +39,17 @@ const icon = computed(() => {
       return ''
   }
 })
+
+const strokeColor = computed(() => {
+  switch (props.status) {
+    case 'Stopped':
+      return '#CB4B4B'
+    case 'Paused':
+      return '#DD9553'
+    default:
+      return '#5eca30'
+  }
+})
 </script>
 
 <template>
@@ -54,7 +65,8 @@ const icon = computed(() => {
         class="progress-circle"
         :style="{
           strokeDasharray: circumference,
-          strokeDashoffset: dashOffset
+          strokeDashoffset: dashOffset,
+          stroke: strokeColor
         }"
       />
     </svg>
@@ -82,7 +94,6 @@ const icon = computed(() => {
 
 .progress-circle {
   fill: none;
-  stroke: #5eca30;
   stroke-width: 0.25rem;
   transform: rotate(-90deg);
   transform-origin: 50% 50%;

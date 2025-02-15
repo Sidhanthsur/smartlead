@@ -15,7 +15,6 @@ defineProps({
 })
 
 const isActive = (option) => {
-  // check if route of option is active
   if (option.route) {
     return route.name === option.route
   }
@@ -56,6 +55,7 @@ const isActive = (option) => {
   height: 100vh;
   width: 14.8rem;
   background-color: white;
+  border-right: 1px solid #f0f1f6;
 }
 
 .sl-side-menu__bottom-container {
