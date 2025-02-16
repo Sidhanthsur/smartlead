@@ -17,14 +17,14 @@ const useLoginPage = () => {
     isLoading.value = true
     const user = userDB.find((item) => item.email === email.value)
     if (user?.password !== password.value) {
-      toast.error('Invalid credentials')
+      toast.error('Invalid credentials', { timeout: 2000 })
       isLoading.value = false
       return
     }
     setTimeout(() => {
       isLoading.value = false
       void setUser(user)
-      toast.success(`Welcome back ${user.username}`, { timeout: 1000 })
+      toast.success(`Welcome back ${user.username}`, { timeout: 2000 })
       void setOfferVisible(true)
       router.push({ name: 'dashboard' })
     }, 1000)

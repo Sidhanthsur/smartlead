@@ -3,6 +3,8 @@ import SLCampaignItem from '@/components/SLCampaignItem.vue'
 import SLSearchBar from '@/components/SLSearchBar.vue'
 import SLButton from '@/components/SLButton.vue'
 import useEmailCampaigns from '@/composables/useEmailCampaigns'
+import noResultJSON from '@/assets/no-result.json'
+import { LottieAnimation } from 'lottie-web-vue'
 const { searchQuery, selectAllCheckbox, selectedCampaigns, filteredCampaigns } = useEmailCampaigns()
 </script>
 <template>
@@ -32,6 +34,16 @@ const { searchQuery, selectAllCheckbox, selectedCampaigns, filteredCampaigns } =
           :campaign="campaign"
         />
       </div>
+    </div>
+    <div class="email-campaigns__no-results" v-else>
+      <LottieAnimation
+        :animation-data="noResultJSON"
+        :auto-play="true"
+        :loop="true"
+        :speed="1"
+        ref="anim"
+      />
+      <h3>No results that match your search !</h3>
     </div>
   </div>
 </template>
@@ -92,5 +104,14 @@ const { searchQuery, selectAllCheckbox, selectedCampaigns, filteredCampaigns } =
 .email-campaigns__table-body {
   max-height: 34rem;
   overflow: scroll;
+}
+.email-campaigns__no-results {
+  max-width: 20rem;
+  max-height: 20rem;
+  margin: 0 auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
 }
 </style>
