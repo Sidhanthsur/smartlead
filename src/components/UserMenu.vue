@@ -18,11 +18,15 @@ const onLogout = () => {
   router.push({ name: 'login' })
 }
 
+const onClick = () => {
+  window.open('https://www.smartlead.ai/', '_blank')
+}
+
 const menuItemsSectionOne = [
-  { label: 'Settings', icon: settingsSVG },
-  { label: "What's new", icon: giftsSVG },
-  { label: 'Help Guide', icon: helpSVG },
-  { label: 'Join our slack community', icon: slackTwoSVG }
+  { label: 'Settings', icon: settingsSVG, onClick },
+  { label: "What's new", icon: giftsSVG, onClick },
+  { label: 'Help Guide', icon: helpSVG, onClick },
+  { label: 'Join our slack community', icon: slackTwoSVG, onClick }
 ]
 
 const menuItemsSectionTwo = [{ label: 'Log out', icon: logoutSVG, onClick: onLogout }]

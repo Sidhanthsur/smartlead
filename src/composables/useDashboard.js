@@ -44,7 +44,7 @@ const useDashboard = () => {
       label: 'Smartlead Tutorials',
       icon: PlaySVG,
       onClick: () => {
-        window.open('https://youtube.com', '_blank')
+        window.open('https://www.youtube.com/@smartleadai', '_blank')
       }
     }
   ]

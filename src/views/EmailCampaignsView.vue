@@ -16,7 +16,7 @@ const { searchQuery, selectAllCheckbox, selectedCampaigns, filteredCampaigns } =
         <SLButton c class="email-campaigns__header-button" label="+ Add Campaign" />
       </div>
     </div>
-    <div class="email-campaigns__table">
+    <div v-if="filteredCampaigns.length" class="email-campaigns__table">
       <div class="email-campaigns__table-header">
         <input type="checkbox" :disabled="!filteredCampaigns.length" v-model="selectAllCheckbox" />
         <div class="email-campaigns__table-header-title">Campaign Details</div>
