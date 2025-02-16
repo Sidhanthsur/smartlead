@@ -61,7 +61,7 @@ const { email, password, submit, isLoading } = useLoginPage()
 .login-view__card-sub-title {
   font-family: DM Sans;
   font-weight: 400;
-  font-size: 14px;
+  font-size: 0.875rem;
   line-height: 18.23px;
   letter-spacing: 0%;
   text-align: center;

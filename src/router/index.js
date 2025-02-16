@@ -25,7 +25,7 @@ const router = createRouter({
       path: '/dashboard',
       component: DashboardView,
       meta: {
-        requiresAuth: true
+        isAuthRequired: true
       },
       children: [
         {
@@ -48,7 +48,7 @@ router.beforeEach((to, from, next) => {
     loginGuard(to, from, next)
     return
   }
-  if (to.matched.some((record) => record.meta.requiresAuth)) {
+  if (to.matched.some((record) => record.meta.isAuthRequired)) {
     authGuard(to, from, next)
 
     return

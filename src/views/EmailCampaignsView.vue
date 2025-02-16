@@ -15,7 +15,7 @@ const { searchQuery, selectAllCheckbox, selectedCampaigns, filteredCampaigns } =
       >
       <div class="flex items-center">
         <SLSearchBar v-model="searchQuery" />
-        <SLButton c class="email-campaigns__header-button" label="+ Add Campaign" />
+        <SLButton class="email-campaigns__header-button" label="+ Add Campaign" />
       </div>
     </div>
     <div v-if="filteredCampaigns.length" class="email-campaigns__table">

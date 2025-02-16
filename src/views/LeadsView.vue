@@ -7,7 +7,7 @@ import SLButton from '@/components/SLButton.vue'
   <div class="leads-view">
     <div class="leads-view__title">Get Free New Contacts and Leads</div>
     <div class="leads-view__sub-title">
-      Scrape verfied emails straight from LinkedIn using our Sales Navigator lead extractor.
+      Scrape verified emails straight from LinkedIn using our Sales Navigator lead extractor.
       Download the extension and kick off!
     </div>
     <img :src="illustrationSVG" alt="Illustration" />
