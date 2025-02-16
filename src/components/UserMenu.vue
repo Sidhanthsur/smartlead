@@ -3,6 +3,12 @@ import { useUserStore } from '@/stores/user'
 import ellipseSVG from '@/assets/Ellipse.svg'
 import router from '@/router'
 import UserMenuProgress from '@/components/UserMenuProgress.vue'
+import giftsSVG from '@/assets/gifts.svg'
+import helpSVG from '@/assets/help.svg'
+import logoutSVG from '@/assets/logout.svg'
+import settingsSVG from '@/assets/settings.svg'
+import slackTwoSVG from '@/assets/slack-two.svg'
+import UserMenuActionItem from './UserMenuActionItem.vue'
 const { user, setUser } = useUserStore()
 
 defineProps(['isOpen'])
@@ -12,12 +18,14 @@ const onLogout = () => {
   router.push({ name: 'login' })
 }
 
-const menuItems = [
-  { label: 'Profile Settings', icon: '⚙️' },
-  { label: 'Billing', icon: '💳' },
-  { label: 'API Documentation', icon: '📄' },
-  { label: 'Log out', icon: '🚪', danger: true, onClick: onLogout }
+const menuItemsSectionOne = [
+  { label: 'Settings', icon: settingsSVG },
+  { label: "What's new", icon: giftsSVG },
+  { label: 'Help Guide', icon: helpSVG },
+  { label: 'Join our slack community', icon: slackTwoSVG }
 ]
+
+const menuItemsSectionTwo = [{ label: 'Log out', icon: logoutSVG, onClick: onLogout }]
 </script>
 
 <template>
@@ -48,19 +56,8 @@ const menuItems = [
         left-value="84, 000 / 90, 000"
       />
     </div>
-
-    <div class="menu-items">
-      <div
-        v-for="item in menuItems"
-        :key="item.label"
-        class="menu-item"
-        :class="{ 'menu-item--danger': item.danger }"
-        @click="item?.onClick && item.onClick()"
-      >
-        <span class="menu-item__icon">{{ item.icon }}</span>
-        <span class="menu-item__label">{{ item.label }}</span>
-      </div>
-    </div>
+    <UserMenuActionItem :menuItems="menuItemsSectionOne" />
+    <UserMenuActionItem :menuItems="menuItemsSectionTwo" />
   </div>
 </template>
 
@@ -143,7 +140,7 @@ const menuItems = [
 
 .menu-items {
   padding: 0.5rem 0;
-  border: 0.0625rem solid #f1f2f8;
+  border-top: 0.0625rem solid #f1f2f8;
 }
 
 .menu-item {
