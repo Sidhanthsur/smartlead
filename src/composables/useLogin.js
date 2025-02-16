@@ -1,11 +1,13 @@
 import { ref } from 'vue'
 import userDB from '../constants/userDB'
 import { useUserStore } from '@/stores/user'
-import { toast } from 'vue3-toastify'
+import { useToast } from 'vue-toastification'
+
 import router from '@/router'
 
 const useLoginPage = () => {
   const { setUser, setOfferVisible } = useUserStore()
+  const toast = useToast()
 
   const email = ref('a@b.com')
   const password = ref('123456')
@@ -15,13 +17,14 @@ const useLoginPage = () => {
     isLoading.value = true
     const user = userDB.find((item) => item.email === email.value)
     if (user?.password !== password.value) {
-      toast('Invalid credentials', { type: 'error' })
+      toast.error('Invalid credentials')
+      isLoading.value = false
       return
     }
     setTimeout(() => {
       isLoading.value = false
       void setUser(user)
-      toast('Logged in successfully', { type: 'success' })
+      toast.success(`Welcome back ${user.username}`, { timeout: 1000 })
       void setOfferVisible(true)
       router.push({ name: 'dashboard' })
     }, 1000)

@@ -137,32 +137,4 @@ const menuItemsSectionTwo = [{ label: 'Log out', icon: logoutSVG, onClick: onLog
   font-size: 0.875rem;
   color: #282b42;
 }
-
-.menu-items {
-  padding: 0.5rem 0;
-  border-top: 0.0625rem solid #f1f2f8;
-}
-
-.menu-item {
-  display: flex;
-  align-items: center;
-  gap: 0.75rem;
-  padding: 0.75rem 1rem;
-  cursor: pointer;
-  transition: background-color 0.2s;
-}
-
-.menu-item:hover {
-  background-color: #f7f7f9;
-}
-
-.menu-item__label {
-  font-family: 'DM Sans';
-  font-size: 0.875rem;
-  color: #282b42;
-}
-
-.menu-item--danger .menu-item__label {
-  color: #cb4b4b;
-}
 </style>
