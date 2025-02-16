@@ -1,7 +1,7 @@
 export const campaigns = [
   {
     progress: 23,
-    id: 2,
+    id: '2',
     title: 'zero no 2',
     sequences: 5,
     status: 'Paused',
@@ -35,7 +35,7 @@ export const campaigns = [
   // the status can be 'Drafted', 'Sent', 'Paused' and 'Stopped'
   {
     progress: 45,
-    id: 3,
+    id: '3',
     title: 'zero no 3',
     sequences: 5,
     status: 'Sent',
@@ -66,7 +66,7 @@ export const campaigns = [
   },
   {
     progress: 0,
-    id: 4,
+    id: '4',
     title: 'zero no 4',
     sequences: 5,
     status: 'Drafted',
@@ -93,7 +93,7 @@ export const campaigns = [
   },
   {
     progress: 89,
-    id: 5,
+    id: '5',
     title: 'zero no 5',
     sequences: 5,
     status: 'Stopped',
@@ -124,7 +124,7 @@ export const campaigns = [
   },
   {
     progress: 100,
-    id: 6,
+    id: '6',
     title: 'zero no 6',
     sequences: 5,
     status: 'Sent',
@@ -155,7 +155,7 @@ export const campaigns = [
   },
   {
     progress: 100,
-    id: 7,
+    id: '7',
     title: 'zero no 7',
     sequences: 5,
     status: 'Sent',

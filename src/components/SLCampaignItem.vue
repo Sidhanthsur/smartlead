@@ -1,12 +1,16 @@
-<script setup>
+<script setup lang="ts">
 import SLCampaignProgress from './SLCampaignProgress.vue'
 import SLCampaignStatus from './SLCampaignStatus.vue'
 import SLCampaignMetric from './SLCampaignMetric.vue'
 import button1SVG from '@/assets/button1.svg'
 import button2SVG from '@/assets/button2.svg'
 import button3SVG from '@/assets/button3.svg'
+import { Campaign } from '@/constants/types'
 
-defineProps(['campaign'])
+defineProps<{
+  campaign: Campaign
+}>()
+
 const model = defineModel()
 </script>
 <template>
