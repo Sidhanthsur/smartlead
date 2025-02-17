@@ -41,10 +41,11 @@ defineProps({
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  padding: 12px 24px;
+  height: 2.5rem;
+  padding: 0 1.25rem;
   border-radius: 0.1875rem;
   border: none;
-  background: #5e5adb;
+  background: #757ae9;
   color: white;
   cursor: pointer;
   font-family: DM Sans;

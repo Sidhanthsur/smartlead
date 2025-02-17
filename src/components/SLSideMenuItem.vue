@@ -21,26 +21,26 @@ defineProps({
 
 <template>
   <div
-    class="menu-item"
+    class="sl-side-menu-item"
     :class="{
-      'menu-item--active': active,
-      'menu-item__disabled': disabled
+      'sl-side-menu-item--active': active,
+      'sl-side-menu-item__disabled': disabled
     }"
   >
     <img
       v-if="icon"
-      class="menu-item__icon"
+      class="sl-side-menu-item__icon"
       :class="{
-        'menu-item__icon--in-active': !active
+        'sl-side-menu-item__icon--in-active': !active
       }"
       :src="icon"
     />
-    <span class="menu-item__label">{{ label }}</span>
+    <span class="sl-side-menu-item__label">{{ label }}</span>
   </div>
 </template>
 
 <style scoped>
-.menu-item {
+.sl-side-menu-item {
   display: flex;
   align-items: center;
   cursor: pointer;
@@ -49,26 +49,26 @@ defineProps({
   border-left: 0.2rem solid transparent;
 }
 
-.menu-item--active {
+.sl-side-menu-item--active {
   background-color: #f7f7f9;
   background: #757ae91a;
   border-left: 0.2rem solid #757ae9;
 }
 
-.menu-item__icon--in-active {
+.sl-side-menu-item__icon--in-active {
   filter: grayscale(100%);
 }
 
-.menu-item__disabled {
+.sl-side-menu-item__disabled {
   cursor: not-allowed;
 }
 
-.menu-item__icon {
+.sl-side-menu-item__icon {
   width: 1.25rem;
   height: 1.25rem;
 }
 
-.menu-item__label {
+.sl-side-menu-item__label {
   font-family: DM Sans;
   font-weight: 400;
   font-size: 0.875rem;
