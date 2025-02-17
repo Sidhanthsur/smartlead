@@ -19,16 +19,7 @@ const { setOfferVisible } = useUserStore()
 
     <div class="flex items-center">
       <SLButton label="15% off for 3 months" class="offer-banner__button" />
-      <img
-        @click="
-          () => {
-            setOfferVisible(false)
-          }
-        "
-        :src="crossSVG"
-        class="cursor-pointer"
-        alt="close"
-      />
+      <img @click="setOfferVisible(false)" :src="crossSVG" class="cursor-pointer" alt="close" />
     </div>
   </div>
 </template>
