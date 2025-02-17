@@ -52,8 +52,6 @@ const model = defineModel()
         <img :src="button3SVG" />
       </button>
     </div>
-
-    <div></div>
   </div>
 </template>
 <style scoped>
