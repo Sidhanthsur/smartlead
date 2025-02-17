@@ -28,7 +28,8 @@ const router = createRouter({
           name: 'emails'
         }
       ]
-    }
+    },
+    { path: '/:pathMatch(.*)*', name: 'not-found', component: () => import('@/views/PageNotFoundView.vue') }
   ]
 })
 
