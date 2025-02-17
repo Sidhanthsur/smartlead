@@ -26,6 +26,7 @@ const { searchQuery, selectAllCheckbox, selectedCampaigns, filteredCampaigns } =
           Report
         </div>
       </div>
+      <!--enhancement: virtual list-->
       <div class="email-campaigns__table-body">
         <SLCampaignItem
           v-model="selectedCampaigns"

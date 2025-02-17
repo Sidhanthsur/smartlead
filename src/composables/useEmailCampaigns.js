@@ -7,8 +7,11 @@ const useEmailCampaigns = () => {
   const searchQuery = ref('')
 
   const filteredCampaigns = computed(() => {
-    return campaigns.filter((campaign) =>
-      campaign.title.toLowerCase().includes(searchQuery.value.toLowerCase())
+    //enhancement: can debounce
+    return campaigns.filter(
+      (campaign) =>
+        campaign.title.toLowerCase().includes(searchQuery.value.toLowerCase()) ||
+        campaign.status.toLowerCase().includes(searchQuery.value.toLowerCase())
     )
   })
   watch(selectAllCheckbox, (newVal) => {
