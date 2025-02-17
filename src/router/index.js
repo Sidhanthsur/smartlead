@@ -1,8 +1,5 @@
 import { createRouter, createWebHistory } from 'vue-router'
 import LoginView from '../views/LoginView.vue'
-import DashboardView from '@/views/DashboardView.vue'
-import LeadsView from '@/views/LeadsView.vue'
-import EmailCampaignsView from '@/views/EmailCampaignsView.vue'
 import { authGuard, loginGuard } from './guards'
 
 const router = createRouter({
@@ -14,28 +11,20 @@ const router = createRouter({
       component: LoginView
     },
     {
-      path: '/about',
-      name: 'about',
-      // route level code-splitting
-      // this generates a separate chunk (About.[hash].js) for this route
-      // which is lazy-loaded when the route is visited.
-      component: () => import('../views/AboutView.vue')
-    },
-    {
       path: '/dashboard',
-      component: DashboardView,
+      component: () => import('@/views/DashboardView.vue'),
       meta: {
         isAuthRequired: true
       },
       children: [
         {
           path: '',
-          component: LeadsView,
+          component: () => import('@/views/LeadsView.vue'),
           name: 'dashboard'
         },
         {
           path: 'emails',
-          component: EmailCampaignsView,
+          component: () => import('@/views/EmailCampaignsView.vue'),
           name: 'emails'
         }
       ]
