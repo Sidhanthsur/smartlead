@@ -16,7 +16,7 @@ export const campaigns = [
       opened: {
         percentage: 13,
         count: 233,
-        color: ' #BF51C1'
+        color: '#BF51C1'
       },
       replied: {
         percentage: 8,
@@ -30,9 +30,6 @@ export const campaigns = [
       }
     }
   },
-  // more campaigns with different values for all fields
-  // dont change any color values
-  // the status can be 'Drafted', 'Sent', 'Paused' and 'Stopped'
   {
     progress: 45,
     id: 3,
@@ -50,7 +47,7 @@ export const campaigns = [
       opened: {
         percentage: 13,
         count: 233,
-        color: ' #BF51C1'
+        color: '#BF51C1'
       },
       replied: {
         percentage: 8,
@@ -108,7 +105,7 @@ export const campaigns = [
       opened: {
         percentage: 13,
         count: 233,
-        color: ' #BF51C1'
+        color: '#BF51C1'
       },
       replied: {
         percentage: 8,
@@ -139,7 +136,7 @@ export const campaigns = [
       opened: {
         percentage: 13,
         count: 233,
-        color: ' #BF51C1'
+        color: '#BF51C1'
       },
       replied: {
         percentage: 8,
@@ -170,7 +167,7 @@ export const campaigns = [
       opened: {
         percentage: 13,
         count: 233,
-        color: ' #BF51C1'
+        color: '#BF51C1'
       },
       replied: {
         percentage: 8,
